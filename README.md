@@ -13,9 +13,9 @@ screenShot
 ## Screenshots
 
  <p float="left">
-  <img src="./screenShots/1.png" width="50%"   /> 
-  <img src="./screenShots/2.png" width="50%" /> 
-  <img src="./screenShots/3.png" width="50%" /> 
-  <img src="./screenShots/4.png" width="50%" /> 
-  <img src="./screenShots/5.png" width="50%" /> 
+  <img src="./screenShots/1.png" width="90%"   /> 
+  <img src="./screenShots/2.png" width="90%" /> 
+  <img src="./screenShots/3.png" width="90%" /> 
+  <img src="./screenShots/4.png" width="90%" /> 
+  <img src="./screenShots/5.png" width="90%" /> 
 </p>
