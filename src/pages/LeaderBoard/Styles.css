@@ -1,0 +1,16 @@
+.table thead tr th, .table tr, .table tr td {
+  border: 2px solid #bbc9dd;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.table thead tr th {
+  background-color: #e5f0ff;
+  font-size: 20px;
+}
+
+.profileandname {
+  text-align: left;
+}

@@ -1,0 +1,28 @@
+.navbar {
+  margin-bottom: 40px;
+}
+
+.links {
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none !important;
+}
+
+.signed {
+  padding-right: 30px;
+}
+
+.brandName {
+  text-decoration: none !important;
+  font-size: 22px;
+  font-weight: 500;
+  color: #052555;
+  cursor: pointer;
+}
+
+.avatarLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+}

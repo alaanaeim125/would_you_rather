@@ -1,0 +1,15 @@
+.btnSubmit {
+  width: 220px;
+  height: 40px;
+}
+
+.btnSubmit span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.titleQuestion {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
