@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import "./Styles.css";
 
-const LeaderBoard = () => {
+const LeaderBoard = (props) => {
   const [orderUsers, setOrderUsers] = useState([]);
 
   const allUsers = useSelector((state) => state.data.users);
@@ -49,13 +49,13 @@ const LeaderBoard = () => {
             orderUsers.map((user, index) => (
               <tr key={user.id}>
                 <td>{index + 1}</td>
-                <td style={{textAlign: 'left'}}>
+                <td style={{ textAlign: "left" }}>
                   <img
                     src={user.avatarURL}
                     width="40"
                     height="40"
                     alt="Profile img"
-                    style={{borderRadius: '30px', marginRight: '10px'}}
+                    style={{ borderRadius: "30px", marginRight: "10px" }}
                   />
                   {user.name}
                 </td>

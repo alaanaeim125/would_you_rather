@@ -42,7 +42,7 @@ const Answer = (props) => {
       <Card style={{ width: "23rem" }}>
         <Card.Img variant="top" src={users[Question.author].avatarURL} />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title> <strong style = {{color: 'blue'}}>{users[Question.author].name}</strong> Asks Would You Rather:</Card.Title>
           <Form onSubmit={handleSubmit}>
             <ListGroup className="pb-3">
               <ListGroupItem>
@@ -76,7 +76,12 @@ const Answer = (props) => {
       </Card>
     </Row>
   ) : (
-    <Redirect to="/" />
+      <Redirect
+        to={{
+          pathname: "/",
+          state: { from: props.location },
+        }}
+      />
   );
 };
 

@@ -5,7 +5,8 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import { LoginUser } from "../../store/actions/UserAction";
 import "./Styles.css";
 
-const Login = () => {
+const Login = (props) => {
+
   const [user, setUser] = useState("");
   const [users, setUsers] = useState([]);
 

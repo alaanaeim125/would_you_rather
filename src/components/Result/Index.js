@@ -26,26 +26,74 @@ const Result = (props) => {
       <Row className="justify-content-md-center">
         <Col md="auto">
           <Col xs="12" className="text-center">
-            <b>Asked by : {users[question.author].name}</b>
+            <div>Asked by : {users[question.author].name}</div>
             <br />
-            <b>{users[userId].name}</b>{" "}
-            {questions[question.id][users[userId].answers[question.id]].text}
+            <b style={{fontWeight: 'bold'}}>{users[userId].name} </b>
+            Selected :
+            <span
+              style={{
+                backgroundColor: "#2E3F7F",
+                color: "#FFFFFF",
+                padding: "5px",
+                borderRadius: "5px",
+                fontWeight: "bold",
+              }}
+            >
+              {questions[question.id][users[userId].answers[question.id]].text}
+            </span>
+            <br />
+            <br />
           </Col>
           <ListGroup>
             <ListGroupItem>
               Option 1: {question.optionOne.text} ({optionOneVotesNumber} votes
               out of {totalVotes}) (Option 1 : {optionOnePercentage} % )
+              {question.optionOne.text ===
+              questions[question.id][users[userId].answers[question.id]]
+                .text ? (
+                <span
+                  style={{
+                    backgroundColor: "#2E3F7F",
+                    color: "#FFFFFF",
+                    padding: "5px",
+                    borderRadius: "5px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Your Vote
+                </span>
+              ) : null}
             </ListGroupItem>
             <ListGroupItem>
               Option 2: {question.optionTwo.text} ({optionTwoVotesNumber} votes
               out of{totalVotes}) (Option 2 : {optionTwoPercentage} %)
+              {question.optionTwo.text ===
+              questions[question.id][users[userId].answers[question.id]]
+                .text ? (
+                <span
+                  style={{
+                    backgroundColor: "#2E3F7F",
+                    color: "#FFFFFF",
+                    padding: "5px",
+                    borderRadius: "5px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Your Vote
+                </span>
+              ) : null}
             </ListGroupItem>
           </ListGroup>
         </Col>
       </Row>
     </div>
   ) : (
-    <Redirect to="/" />
+      <Redirect
+        to={{
+          pathname: "/",
+          state: { from: props.location },
+        }}
+      />
   );
 };
 

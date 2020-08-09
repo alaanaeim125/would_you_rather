@@ -72,7 +72,7 @@ const NavBar = () => {
                       borderRadius: "5px",
                       color: "#FFFFFF",
                     }}
-                    to="/create"
+                    to="/add"
                   >
                     Add Question
                   </NavLink>
@@ -98,14 +98,13 @@ const NavBar = () => {
               </Nav>
 
               <Navbar.Text className="justify-content-end">
-                Signed in as :
+                <strong style={{marginRight: '10px'}}>{users[userId].name} </strong>
                 <img className="avatarLogo" alt='' src={users[userId].avatarURL} />
-                {users[userId].name}
               </Navbar.Text>
             </Fragment>
         </Navbar.Collapse>
           ) : (
-            <Redirect to="/login" />
+            <Redirect to="/" />
           )}
       </Container>
     </Navbar>

@@ -14,6 +14,7 @@ const Dashboard = () => {
   const answerdQuestions = useSelector((state) => AuthUser ? Object.keys(users[userId].answers).sort((a, b) => state.data.questions[b].timestamp - state.data.questions[a].timestamp) : []);
   const unAnsweredQuestions = AuthUser ? Object.keys(questions).filter((Qid) => !answerdQuestions.includes(Qid)).sort((a, b) => questions[b].timestamp - questions[a].timestamp) : [];
 
+  console.log('ddddddd    ', questions)
   
   return (
     <div className="container">
@@ -46,7 +47,9 @@ const Dashboard = () => {
         <TabPane active={tabsActive}>
           <Fragment>
             {
-              unAnsweredQuestions.map(Qid => <SingleQuestion answered="answer" key= {Qid} Qid = {Qid} state="Active" />)
+              unAnsweredQuestions.length > 0 ?
+                unAnsweredQuestions.map(Qid => <SingleQuestion answered="questions" key={Qid} Qid={Qid} state="Active" />)
+                : <h1 style={{textAlign: 'center'}}>Congratulation You Answer All Questions!!</h1>
             }
             
           </Fragment>

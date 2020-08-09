@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 // ...rest all props without list them
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-    const userId = useSelector((state) => state.user.userId);
+  const userId = useSelector((state) => state.user.userId);
 
     return (
     <Route
