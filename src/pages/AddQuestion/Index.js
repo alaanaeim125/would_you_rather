@@ -33,7 +33,7 @@ const AddQuestion = (props) => {
 
       setTimeout(() => res("success"), 500);
     }).then(() => {
-      history.push("/dashboard");
+      history.push("/");
     });
   };
 

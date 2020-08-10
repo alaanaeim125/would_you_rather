@@ -12,15 +12,17 @@ import {
   saveQuestionAnswer,
   userAnsweredQuestion,
 } from "../../store/actions/QuestionAction";
-
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Answer = (props) => {
   const Questions = useSelector((state) => state.data.questions);
   const AuthUser = useSelector((state) => state.user.AuthUser);
   const userId = useSelector((state) => state.user.userId);
   const users = useSelector((state) => state.data.users);
-  const Question = Questions[props.match.params.Qid];
+  const Question = Questions[props.match.params.question_id]
+    ? Questions[props.match.params.question_id]
+    : null;
+
   const [answer, setAnswer] = useState("");
   const dispatch = useDispatch();
 
@@ -31,18 +33,27 @@ const Answer = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { history } = props;
-
-    dispatch(saveQuestionAnswer(userId, props.match.params.Qid, answer));
-    dispatch(userAnsweredQuestion(userId, props.match.params.Qid, answer));
-    history.push(`/results/${props.match.params.Qid}`);
+    dispatch(
+      saveQuestionAnswer(userId, props.match.params.question_id, answer)
+    );
+    dispatch(
+      userAnsweredQuestion(userId, props.match.params.question_id, answer)
+    );
+    history.push(`/results/${props.match.params.question_id}`);
   };
 
-  return AuthUser ? (
+  return AuthUser && Question !== null ? (
     <Row className="justify-content-center">
       <Card style={{ width: "23rem" }}>
         <Card.Img variant="top" src={users[Question.author].avatarURL} />
         <Card.Body>
-          <Card.Title> <strong style = {{color: 'blue'}}>{users[Question.author].name}</strong> Asks Would You Rather:</Card.Title>
+          <Card.Title>
+            {" "}
+            <strong style={{ color: "blue" }}>
+              {users[Question.author].name}
+            </strong>{" "}
+            Asks Would You Rather:
+          </Card.Title>
           <Form onSubmit={handleSubmit}>
             <ListGroup className="pb-3">
               <ListGroupItem>
@@ -76,12 +87,13 @@ const Answer = (props) => {
       </Card>
     </Row>
   ) : (
-      <Redirect
-        to={{
-          pathname: "/",
-          state: { from: props.location },
-        }}
-      />
+    <div className="text-center">
+      <h1>This Question Not Found</h1>
+      <h2>Please Select Existing Question</h2>
+      <h3>
+        <Link to="/">Back to Login</Link>
+      </h3>
+    </div>
   );
 };
 

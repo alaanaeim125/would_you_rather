@@ -8,7 +8,7 @@ const Result = (props) => {
   const users = useSelector((state) => state.data.users);
   const questions = useSelector((state) => state.data.questions);
   const userId = useSelector((state) => state.user.userId);
-  const question = questions[props.match.params.Qid];
+  const question = questions[props.match.params.question_id];
 
   const optionOneVotesNumber = AuthUser ? question.optionOne.votes.length : 0;
   const optionTwoVotesNumber = AuthUser ? question.optionTwo.votes.length : 0;
@@ -28,7 +28,7 @@ const Result = (props) => {
           <Col xs="12" className="text-center">
             <div>Asked by : {users[question.author].name}</div>
             <br />
-            <b style={{fontWeight: 'bold'}}>{users[userId].name} </b>
+            <b style={{ fontWeight: "bold" }}>{users[userId].name} </b>
             Selected :
             <span
               style={{
@@ -88,12 +88,12 @@ const Result = (props) => {
       </Row>
     </div>
   ) : (
-      <Redirect
-        to={{
-          pathname: "/",
-          state: { from: props.location },
-        }}
-      />
+    <Redirect
+      to={{
+        pathname: "/",
+        state: { from: props.location },
+      }}
+    />
   );
 };
 
